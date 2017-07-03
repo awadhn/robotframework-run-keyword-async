@@ -3,7 +3,7 @@ import os
 import time
 from robot.libraries.BuiltIn import BuiltIn
 
-class KeywordAsyncLibrary:
+class runKeywordAsync:
     def __init__(self):
         self._thread_pool = {}
         self._last_thread_handle = 1
