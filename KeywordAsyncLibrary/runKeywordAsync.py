@@ -1,11 +1,9 @@
-# runKeywordAsync.py
-
 import sys
 import os
 import time
 from robot.libraries.BuiltIn import BuiltIn
 
-class runKeywordAsync:
+class KeywordAsyncLibrary:
     def __init__(self):
         self._thread_pool = {}
         self._last_thread_handle = 1
