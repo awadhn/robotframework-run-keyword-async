@@ -9,7 +9,7 @@ setup(
     license = "MIT",
     url = "https://github.com/awadhn/robotframework-run-keyword-async",
     download_url = "https://github.com/awadhn/robotframework-run-keyword-async",
-    keywords = ["async", "robotframework"],
+    keywords = ["run-keyword-async", "async", "robotframework"],
     install_requires = ["robotframework >= 2.8.6"],
     packages = ["KeywordAsyncLibrary"],
     classifiers = [
