@@ -1,11 +1,11 @@
-cription**
+**Description**
  Generic Robot Framework library for asynchronous keyword or method execution
  This module takes keyword as input and runs it as an independent thread. This module also provide a mechanism to wait for all the spawned thread with a timeout and returns a list containing result.
 
 **Installation**
 
 If you have pip installed:
- **pip3 install robotframework-run-keyword-async**
+ pip3 install robotframework-run-keyword-async
 
 Alternatively download directly from the Python Package Index:  
  https://pypi.python.org/pypi/robotframework-run-keyword-async
