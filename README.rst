@@ -16,9 +16,9 @@ Alternatively download directly from the Python Package Index:
      Library runKeywordAsync 
 
 **2. To run a keyword asynchronously:**                
-     ${handle} Run Keyword Async <keyword name> <first argument> <second argument>
+     ${handle}=   Run Keyword Async   <keyword name>   <first argument>   <second argument>
        (Note: It takes only args as arguments, kwargs is not supported) 
 
 **3. To wait for all keywords and retrieve the return value:** 
-     ${return_value}= Wait Async All timeout=3
+     ${return_value}=   Wait Async All   timeout=3
        (Note: timeout is an optional parameter, default timeout is 60 seconds)
