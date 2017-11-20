@@ -36,6 +36,8 @@ class runKeywordAsync:
               results.append(result)
             except:
               BuiltIn().set_log_level(self._robot_log_level)
+              for thread in self._thread_pool:
+                  self._thread_pool[thread].terminate()
               raise Exception("Process " + str(thread) + " Failed")
         BuiltIn().set_log_level(self._robot_log_level)
         self._thread_pool = {}
