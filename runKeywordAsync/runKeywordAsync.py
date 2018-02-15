@@ -2,15 +2,16 @@ import sys
 import os
 import time
 from robot.libraries.BuiltIn import BuiltIn
+from robot.output.logger import LOGGER
 
 class runKeywordAsync:
     def __init__(self):
         self._thread_pool = {}
         self._last_thread_handle = 1
-        self._robot_log_level = BuiltIn().get_variable_value("${LOG_LEVEL}")
+        #self._robot_log_level = BuiltIn().get_variable_value("${LOG_LEVEL}")
 
     def run_method_async(self, keyword, *args, **kwargs):
-        BuiltIn().set_log_level("NONE")
+        #BuiltIn().set_log_level("NONE")
         handle = self._last_thread_handle
         thread = self._threaded_method(keyword, *args, **kwargs)
         thread.start()
@@ -19,7 +20,7 @@ class runKeywordAsync:
         return handle
 
     def run_keyword_async(self, keyword, *args):
-        BuiltIn().set_log_level("NONE")
+        #BuiltIn().set_log_level("NONE")
         handle = self._last_thread_handle
         thread = self._threaded(keyword, *args)
         thread.start()
@@ -35,11 +36,11 @@ class runKeywordAsync:
               result = self._thread_pool[thread].result_queue.get(True, timeout)
               results.append(result)
             except:
-              BuiltIn().set_log_level(self._robot_log_level)
+              #BuiltIn().set_log_level(self._robot_log_level)
               for thread in self._thread_pool:
                   self._thread_pool[thread].terminate()
               raise Exception("Process " + str(thread) + " Failed")
-        BuiltIn().set_log_level(self._robot_log_level)
+        #BuiltIn().set_log_level(self._robot_log_level)
         self._thread_pool = {}
         self._last_thread_handle = 1
         return results
@@ -77,6 +78,7 @@ class runKeywordAsync:
 
         def wrapped_f(q, *args):
             ''' Calls the decorated function and puts the result in a queue '''
+            LOGGER.unregister_xml_logger()
             ret = BuiltIn().run_keyword(keyword, *args)
             q.put(ret)
 
