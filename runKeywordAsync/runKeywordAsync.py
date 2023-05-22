@@ -51,7 +51,7 @@ class runKeywordAsync:
             try:
               result = self._thread_pool[handle].result_queue.get(True, timeout)
               del self._thread_pool[handle]
-              BuiltIn().set_log_level(self._robot_log_level)
+              # BuiltIn().set_log_level(self._robot_log_level)
               return result
             except:
               raise Exception("Process " + str(handle) + " Failed")
